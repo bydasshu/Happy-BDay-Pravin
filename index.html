@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Bday Pravin!</title>
+  <style>
+    :root {
+      --bg-light: #f2f2f2;
+      --bg-dark: #121212;
+      --text-light: #000;
+      --text-dark: #fff;
+      --card-bg-light: #fff;
+      --card-bg-dark: #1e1e1e;
+      --accent: #ff4b5c;
+    }body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+h1 {
+  color: var(--accent);
+  animation: popin 1s ease-out;
+}
+
+.controls {
+  margin: 20px 0;
+}
+
+.controls button {
+  padding: 10px 15px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.slideshow {
+  position: relative;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: var(--card-bg-light);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+.dark-mode .slideshow {
+  background-color: var(--card-bg-dark);
+}
+
+.slideshow img {
+  width: 100%;
+  display: block;
+  animation: fade 1s ease-in-out;
+}
+
+.caption {
+  padding: 16px;
+  font-size: 1rem;
+  animation: floatUp 0.8s ease;
+}
+
+.photo-counter {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popin {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+  </style>
+</head>
+<body>
+  <h1>🎉 Happiest Birthday ever, Pravin!!🎂</h1>
+  <p>Every 4 seconds, a new legendary memory (with a roast, loud and scream) appears.</p>  <div class="controls">
+    <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+    <button onclick="toggleMusic()">🎵 Play/Pause Music</button>
+  </div>  <div class="slideshow">
+    <img id="slideImage" src="photo1.jpg" alt="Birthday photo" />
+    <div class="caption">
+      <span class="photo-counter" id="photoCounter">1 / 12</span><br />
+      <span id="photoJoke">When you realize it's your birthday but the mess served Hostel special...🥴 ~Sheru bhai🐱</span>
+    </div>
+  </div>  <audio id="bgMusic" loop>
+    <source src="birthday_song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>  <footer>
+    Made with ❤️ by <strong>TheDasshu</strong><br />
+    <a href="https://instagram.com/artistdasshu" target="_blank">@artistdasshu</a>
+  </footer>  <script>
+    const photos = [
+      { src: 'photo1.jpg'},
+      { src: 'photo2.jpg', joke: "Warden said no noise after 10pm. Us at 2am: in TV/Sports room, DJ with loud speakers, even Principal had to call upon😁!" },
+      { src: 'photo3.jpg', joke: "Birthday cake? Nah. We made Maggi with 5 candles on top, with Hungary faces" },
+      { src: 'photo5.jpg', joke: "When you hear 'surprise party' and it's just friends raiding your snacks.😝😋" }, 
+      { src: 'photo7.jpg', joke: "Birthday tradition: Lock the birthday boy in the room, and just turn off all lights😶‍🌫🥶." },
+      { src: 'photo8.jpg', joke: "He wanted cake. Got smashed with cake🤕🤒" },
+      { src: 'photo9.jpg', joke: "Friendship test: who still talks to you after hostel truth or dare night?🧐🥸" }, 
+      { src: 'photo11.jpg', joke: "Party budget: ₹500 with contribution. Vibe: ₹1 Lakh. 🤑🥳" },
+    ];
+
+    let currentIndex = 0;
+    const slideImage = document.getElementById('slideImage');
+    const photoJoke = document.getElementById('photoJoke');
+    const photoCounter = document.getElementById('photoCounter');
+
+    function updateSlide() {
+      currentIndex = (currentIndex + 1) % photos.length;
+      slideImage.src = photos[currentIndex].src;
+      photoJoke.textContent = photos[currentIndex].joke;
+      photoCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+    }
+
+    setInterval(updateSlide, 4000);
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script></body>
+</html>
