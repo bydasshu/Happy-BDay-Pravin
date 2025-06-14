@@ -20,6 +20,7 @@
   padding: 20px;
   text-align: center;
   transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
 }
 
 body.dark-mode {
@@ -51,8 +52,7 @@ h1 {
 
 .slideshow {
   width: 600px;
-  max-width: 90vw;
-  aspect-ratio: 5 / 4;
+  height: 900px;
   margin: 20px auto;
   background-color: var(--card-bg-light);
   border-radius: 12px;
@@ -71,6 +71,9 @@ h1 {
 
 .image-wrapper {
   flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,14 +81,10 @@ h1 {
 }
 
 .slideshow img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 600px;
+  height: 900px;
+  object-fit: contain;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -138,6 +137,17 @@ footer a {
   to { opacity: 1; transform: scale(1); }
 }
 
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
   </style>
 </head>
 <body>
@@ -162,10 +172,11 @@ footer a {
   <div class="cake-section">
     <img id="cakeImage" src="cake_with_candles.png" alt="Birthday Cake" />
   </div>
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" loop autoplay>
     <source src="birthday_song.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+  <canvas class="confetti" id="confetti"></canvas>
   <footer>
     Made with ❤️ by <strong>TheDasshu</strong><br />
     <a href="https://instagram.com/artistdasshu" target="_blank">@artistdasshu</a>
@@ -187,10 +198,10 @@ const img1 = document.getElementById('slideImage1');
 const img2 = document.getElementById('slideImage2');
 const photoJoke = document.getElementById('photoJoke');
 const photoCounter = document.getElementById('photoCounter');
+const music = document.getElementById('bgMusic');
 
 function updateSlide() {
   if (isFrozen) return;
-
   const nextIndex = (currentIndex + 1) % photos.length;
   const nextPhoto = photos[nextIndex];
 
@@ -215,7 +226,6 @@ function toggleDarkMode() {
 }
 
 function toggleMusic() {
-  const music = document.getElementById('bgMusic');
   music.paused ? music.play() : music.pause();
 }
 
@@ -227,7 +237,45 @@ function freezeSlides() {
 function blowCandles() {
   const cake = document.getElementById('cakeImage');
   cake.src = 'cake_cut.png';
+  triggerConfetti();
   setTimeout(() => cake.src = 'cake_with_candles.png', 5000);
+}
+
+// Auto music play workaround on user gesture
+document.body.addEventListener('click', () => {
+  if (music.paused) music.play();
+}, { once: true });
+
+// Confetti animation
+function triggerConfetti() {
+  const confettiCanvas = document.getElementById('confetti');
+  const ctx = confettiCanvas.getContext('2d');
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+  const confetti = [];
+  for (let i = 0; i < 150; i++) {
+    confetti.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight - window.innerHeight,
+      r: Math.random() * 6 + 4,
+      d: Math.random() * 30 + 10,
+      color: `hsl(${Math.random() * 360}, 70%, 60%)`
+    });
+  }
+  function draw() {
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    confetti.forEach((p, i) => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+      p.y += Math.cos(p.d) + 2;
+      p.x += Math.sin(p.d);
+      if (p.y > window.innerHeight) confetti[i].y = -10;
+    });
+  }
+  const interval = setInterval(draw, 30);
+  setTimeout(() => clearInterval(interval), 4000);
 }
 
   </script>
