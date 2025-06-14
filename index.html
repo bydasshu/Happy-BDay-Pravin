@@ -1,8 +1,11 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<!-- Hey, this web page is created by TheDasshu for Pravin, Hostel mate! -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Bday Pravin!</title>
+  <!-- this is CSS created by me, but for refractive index optimized by AI -->
   <style>
     :root {
       --bg-light: #f2f2f2;
@@ -12,144 +15,221 @@
       --card-bg-light: #fff;
       --card-bg-dark: #1e1e1e;
       --accent: #ff4b5c;
-    }body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-light);
-  margin: 0;
-  padding: 20px;
-  text-align: center;
-  transition: background-color 0.5s ease, color 0.5s ease;
-  overflow-x: hidden;
-}
+    }
 
-body.dark-mode {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
-}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url(/banner.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      color: var(--text-light);
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      overflow-x: hidden;
+    }
 
-h1 {
-  color: var(--accent);
-  font-size: 2.5rem;
-  animation: popin 1s ease-out;
-}
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
 
-.controls {
-  margin: 20px 0;
-}
+    h1 {
+      color: var(--accent);
+      animation: popin 1s ease-out;
+      font-size: 2rem;
+      margin-top: 0;
+    }
 
-.controls button {
-  padding: 10px 15px;
-  margin: 5px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  background-color: var(--accent);
-  color: white;
-  transition: background-color 0.3s;
-}
+    p {
+      font-size: 1rem;
+    }
 
-.slideshow {
-  width: 600px;
-  height: 900px;
-  margin: 20px auto;
-  background-color: var(--card-bg-light);
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-  transition: background-color 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px auto;
+      max-width: 400px;
+    }
 
-.dark-mode .slideshow {
-  background-color: var(--card-bg-dark);
-}
+    .controls button {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      min-width: 140px;
+      max-width: 45%;
+      flex: 1 1 45%;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      background-color: var(--accent);
+      color: white;
+      transition: background-color 0.3s;
+    }
 
-.image-wrapper {
-  flex: 1;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-}
+    .slideshow {
+      width: 80%;
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: var(--card-bg-light);
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s;
+    }
 
-.slideshow img {
-  position: absolute;
-  width: 600px;
-  height: 900px;
-  object-fit: contain;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
+    .dark-mode .slideshow {
+      background-color: var(--card-bg-dark);
+    }
 
-.slideshow img.active {
-  opacity: 1;
-  z-index: 1;
-}
+    .image-wrapper {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
 
-.caption {
-  padding: 12px;
-  font-size: 1rem;
-  animation: fade 1s ease-in-out;
-  min-height: 60px;
-  background-color: inherit;
-  color: inherit;
-}
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
 
-.photo-counter {
-  font-weight: bold;
-  color: var(--accent);
-}
+    a.foot {
+      color: blue;
+      font-weight: bold;
+    }
+    .slideshow img.active {
+      opacity: 1;
+      z-index: 1;
+    }
 
-.cake-section {
-  margin-top: 20px;
-}
+    .caption {
+      padding: 12px;
+      font-size: 1rem;
+      animation: fade 1s ease-in-out;
+      background-color: inherit;
+      color: inherit;
+      min-height: 60px;
+    }
 
-.cake-section img {
-  height: 150px;
-  transition: all 1s ease-in-out;
-}
+    .photo-counter {
+      font-weight: bold;
+      color: var(--accent);
+    }
 
-footer {
-  margin-top: 40px;
-  font-size: 0.85rem;
-}
+    .cake-section {
+      margin-top: 20px;
+    }
 
-footer a {
-  color: var(--accent);
-  text-decoration: none;
-}
+    .cake-section img {
+      height: 150px;
+      transition: all 1s ease-in-out;
+      max-width: 100%;
+    }
 
-@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+    }
 
-@keyframes popin {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
-}
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-/* Confetti */
-.confetti {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-}
+    @keyframes fade {
+      from {
+        opacity: 0;
+      }
 
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes popin {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* 🌐 Responsive Styles */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .slideshow {
+        width: 90%;
+      }
+
+      .caption {
+        font-size: 0.95rem;
+      }
+
+      .controls {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .controls button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-wrapper {
+        aspect-ratio: 3 / 4;
+      }
+
+      .caption {
+        font-size: 0.9rem;
+      }
+
+      .photo-counter {
+        font-size: 0.9rem;
+      }
+
+      .cake-section img {
+        height: 120px;
+      }
+    }
   </style>
+
 </head>
+
+<!-- I wrote short body just to test my JavaScript knowledge -->
 <body>
   <h1>🎉 Happiest Birthday ever, Pravin!! 🎂</h1>
   <p>Every 4 seconds, a new legendary memory (with a roast, loud and scream) appears.</p>
@@ -165,23 +245,26 @@ footer a {
       <img id="slideImage2" src="" alt="Birthday photo next" />
     </div>
     <div class="caption">
-      <span class="photo-counter" id="photoCounter">1 / 8</span><br />
-      <span id="photoJoke">When you realize it's your birthday but the mess served Hostel special...🥴 ~Sheru bhai🐱</span>
+      <span class="photo-counter" id="photoCounter"></span>
+      <br />
+      <span id="photoJoke">When you realize it's your birthday but the mess served Hostel special...🥴 ~Sheru
+        bhai🐱</span>
     </div>
   </div>
-  <div class="cake-section">
-    <img id="cakeImage" src="cake_with_candles.png" alt="Birthday Cake" />
-  </div>
   <audio id="bgMusic" loop autoplay>
-    <source src="birthday_song.mp3" type="audio/mpeg">
+    <source src="sound1.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
   <canvas class="confetti" id="confetti"></canvas>
-  <footer>
+  <footer style="background-color: #f2f2f2b9;padding: 10px;border-radius: 10px;">
     Made with ❤️ by <strong>TheDasshu</strong><br />
-    <a href="https://instagram.com/artistdasshu" target="_blank">@artistdasshu</a>
+    <a class="foot" href="https://instagram.com/artistdasshu" target="_blank">@artistdasshu</a> | <a
+      href="https://instagram.com/_pravin.1513_" class="foot" target="_blank">@Pravin</a>
   </footer>
+
+  <!-- haha, now, its the main part!, it tooks time but completed! -->
   <script>
+    // Photos are sent by Pravin
     const photos = [
       { src: 'picture1.jpg', joke: "When you realize it's your birthday but the mess served Hostel special...🥴 ~Sheru bhai🐱" },
       { src: 'picture2.jpg', joke: "Warden said no noise after 10pm. Us at 2am: DJ, sports room, principal on call! 😂" },
@@ -190,94 +273,117 @@ footer a {
       { src: 'picture5.jpg', joke: "Tradition: Lock b'day boy in dark room. Lights off 😶‍🌫️" },
       { src: 'picture6.jpg', joke: "Wanted cake, got caked 🤕🎂" },
       { src: 'picture7.jpg', joke: "After hostel Truth or Dare — who still talks to you? 🤐" },
-      { src: 'picture8.jpg', joke: "Budget: ₹500 — Vibe: ₹1 lakh 🤑🥳" }
-    ];let currentIndex = 0;
-let isFrozen = false;
-let currentImage = 1;
-const img1 = document.getElementById('slideImage1');
-const img2 = document.getElementById('slideImage2');
-const photoJoke = document.getElementById('photoJoke');
-const photoCounter = document.getElementById('photoCounter');
-const music = document.getElementById('bgMusic');
+      { src: 'picture8.jpg', joke: "His birthday gift? A bucket of water at 12AM. Classic.🎁" },
+      { src: 'picture9.jpg', joke: "Party started at 8. By 8:05, chips were extinct. 😐🥔" },
+      { src: 'picture10.jpg', joke: "He asked for pizza. Got Sav-Mamra and Pepsi. 🥴🍪🥤" },
+      { src: 'picture11.jpg', joke: "Group study in hostel = 5 mins of books, 3 hours of gossip. 📚🗣️" },
+      { src: 'picture12.jpg', joke: "Roommate's snore could scare ghosts. I sleep in fear. 😱🛏️" },
+      { src: 'picture13.jpg', joke: "One friend brought cake, the other brought drama. Guess who stole the show. 🎭" },
+      { src: 'picture14.jpg', joke: "Tried lighting candles. Power went off. Birthday turned into candlelight horror. 🕯️👻" },
+      { src: 'picture15.jpg', joke: "Best gift: Sleep after cleaning the mess room. 😴🧹" }
+    ];
 
-function updateSlide() {
-  if (isFrozen) return;
-  const nextIndex = (currentIndex + 1) % photos.length;
-  const nextPhoto = photos[nextIndex];
+    let currentIndex = 0;
+    let isFrozen = false;
+    let currentImage = 1;
 
-  const currentImg = currentImage === 1 ? img1 : img2;
-  const nextImg = currentImage === 1 ? img2 : img1;
+    const img1 = document.getElementById('slideImage1');
+    const img2 = document.getElementById('slideImage2');
+    const photoJoke = document.getElementById('photoJoke');
+    const photoCounter = document.getElementById('photoCounter');
+    const music = document.getElementById('bgMusic');
 
-  nextImg.src = nextPhoto.src;
-  nextImg.classList.add('active');
-  currentImg.classList.remove('active');
+    // Set initial caption and counter
+    photoJoke.textContent = photos[0].joke;
+    photoCounter.textContent = `1 / ${photos.length}`;
 
-  photoJoke.textContent = nextPhoto.joke;
-  photoCounter.textContent = `${nextIndex + 1} / ${photos.length}`;
+    function updateSlide() {
+      if (isFrozen) return;
 
-  currentIndex = nextIndex;
-  currentImage = currentImage === 1 ? 2 : 1;
-}
+      const nextIndex = (currentIndex + 1) % photos.length;
+      const nextPhoto = photos[nextIndex];
 
-setInterval(updateSlide, 4000);
+      const currentImg = currentImage === 1 ? img1 : img2;
+      const nextImg = currentImage === 1 ? img2 : img1;
 
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-}
+      nextImg.src = nextPhoto.src;
+      nextImg.classList.add('active');
+      currentImg.classList.remove('active');
 
-function toggleMusic() {
-  music.paused ? music.play() : music.pause();
-}
+      photoJoke.textContent = nextPhoto.joke;
+      photoCounter.textContent = `${nextIndex + 1} / ${photos.length}`;
 
-function freezeSlides() {
-  isFrozen = true;
-  setTimeout(() => isFrozen = false, 10000);
-}
+      currentIndex = nextIndex;
+      currentImage = currentImage === 1 ? 2 : 1;
+    }
 
-function blowCandles() {
-  const cake = document.getElementById('cakeImage');
-  cake.src = 'cake_cut.png';
-  triggerConfetti();
-  setTimeout(() => cake.src = 'cake_with_candles.png', 5000);
-}
+    setInterval(updateSlide, 4000);
 
-// Auto music play workaround on user gesture
-document.body.addEventListener('click', () => {
-  if (music.paused) music.play();
-}, { once: true });
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
 
-// Confetti animation
-function triggerConfetti() {
-  const confettiCanvas = document.getElementById('confetti');
-  const ctx = confettiCanvas.getContext('2d');
-  confettiCanvas.width = window.innerWidth;
-  confettiCanvas.height = window.innerHeight;
-  const confetti = [];
-  for (let i = 0; i < 150; i++) {
-    confetti.push({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight - window.innerHeight,
-      r: Math.random() * 6 + 4,
-      d: Math.random() * 30 + 10,
-      color: `hsl(${Math.random() * 360}, 70%, 60%)`
-    });
-  }
-  function draw() {
-    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-    confetti.forEach((p, i) => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.fill();
-      p.y += Math.cos(p.d) + 2;
-      p.x += Math.sin(p.d);
-      if (p.y > window.innerHeight) confetti[i].y = -10;
-    });
-  }
-  const interval = setInterval(draw, 30);
-  setTimeout(() => clearInterval(interval), 4000);
-}
+    function toggleMusic() {
+      music.paused ? music.play() : music.pause();
+    }
 
+    function freezeSlides() {
+      isFrozen = true;
+      setTimeout(() => isFrozen = false, 10000);
+    }
+
+    function blowCandles() {
+      const cake = document.getElementById('cakeImage');
+      if (cake) {
+        cake.src = 'cake_cut.png';
+        triggerConfetti();
+        setTimeout(() => cake.src = 'cake_with_candles.png', 5000);
+      } else {
+        triggerConfetti(); // fallback: only show confetti
+      }
+    }
+
+    // Auto music play workaround on user gesture
+    document.body.addEventListener('click', () => {
+      if (music.paused) music.play();
+    }, { once: true });
+
+    // Confetti animation
+    function triggerConfetti() {
+      const confettiCanvas = document.getElementById('confetti');
+      const ctx = confettiCanvas.getContext('2d');
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+      const confetti = [];
+
+      for (let i = 0; i < 150; i++) {
+        confetti.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight - window.innerHeight,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 30 + 10,
+          color: `hsl(${Math.random() * 360}, 70%, 60%)`
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        confetti.forEach((p, i) => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+          p.y += Math.cos(p.d) + 2;
+          p.x += Math.sin(p.d);
+          if (p.y > window.innerHeight) confetti[i].y = -10;
+        });
+      }
+
+      const interval = setInterval(draw, 30);
+      setTimeout(() => clearInterval(interval), 4000);
+    }
   </script>
+<!-- Thanks for visiting, bye -->
 </body>
+
 </html>
